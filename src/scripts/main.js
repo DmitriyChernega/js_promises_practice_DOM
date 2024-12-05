@@ -1,6 +1,6 @@
 'use strict';
 
-function showMessege(message, className) {
+function showMessage(message, className) {
   const el = document.createElement('div');
 
   el.setAttribute('data-qa', 'notification');
@@ -31,7 +31,7 @@ const secondPromise = new Promise((resolve) => {
       rightClick = true;
     }
 
-    if (rightClick || leftClick) {
+    if (rightClick) {
       resolve('Second promise was resolved');
     }
   });
@@ -68,9 +68,8 @@ const thirdPromise = new Promise((resolve) => {
 });
 
 firstPromise
-  .then((message) => showMessege(message, `success`))
-  .catch((error) => showMessege(error.message, 'error'));
+  .then((message) => showMessage(message, `success`))
+  .catch((error) => showMessage(error.message, 'error'));
 
-secondPromise.then((message) => showMessege(message, `success`));
-thirdPromise.then((message) => showMessege(message, `success`));
-
+secondPromise.then((message) => showMessage(message, `success`));
+thirdPromise.then((message) => showMessage(message, `success`));
